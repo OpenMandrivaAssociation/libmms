@@ -1,17 +1,23 @@
-%define libname %mklibname mms 0
+%define name	libmms
+%define version	0.3
+%define release	%mkrel 2
+
+%define major		0
+%define libname		%mklibname mms %major
+%define develname	%mklibname mms -d
+
 Summary:        MMS stream protocol library
-Name:           libmms
-Version:        0.3
-Release: %mkrel 1
-License:      LGPL
+Name:           %{name}
+Version:        %{version}
+Release:	%{release}
+License:	LGPLv2.1
 Group:          System/Libraries
 Source:         http://prdownloads.sourceforge.net/libmms/libmms-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{PACKAGE_VERSION}-root
 URL:            http://libmms.sf.net
-BuildRequires: glib2-devel
+BuildRequires:	glib2-devel
 
 %description
-Libmms is a library implementing the mms streaming protocol.
+Libmms is a library implementing the MMS streaming protocol.
 
 %package -n %libname
 Group: System/Libraries
@@ -20,15 +26,16 @@ Summary: Shared library implementing the MMS protocol
 %description -n %libname
 Libmms is a library implementing the mms streaming protocol.
 
-%package -n %libname-devel
-Summary: Libraries and includefiles for developing with libmms
+%package -n %develname
+Summary: Development headers for developing with libmms
 Group:	 Development/C
 Requires: %libname = %version
-Provides: libmms-devel = %version-%release
+Provides: %name-devel = %version-%release
+Obsoletes: %mklibname mms 0 -d
 
-%description -n %libname-devel
-This paackage provides the necessary development headers and libraries
-to allow you to devel with libmms
+%description -n %develname
+This package provides the necessary development headers and libraries
+to allow you to build programs that use libmms.
 
 %prep
 %setup -q
@@ -53,13 +60,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-, root, root)
-%doc AUTHORS COPYING.LIB ChangeLog README TODO README.LICENSE
-# NEWS
+%doc AUTHORS ChangeLog README TODO README.LICENSE
 %{_libdir}/libmms.so.*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-, root, root)
-%{_includedir}/libmms/
+%{_includedir}/libmms
 %{_libdir}/libmms.so
 %{_libdir}/libmms.la
 %{_libdir}/pkgconfig/libmms.pc
