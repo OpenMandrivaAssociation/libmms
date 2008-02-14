@@ -12,6 +12,7 @@ Version:        %{version}
 Release:	%{release}
 License:	LGPLv2.1
 Group:          System/Libraries
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:         http://prdownloads.sourceforge.net/libmms/libmms-%{version}.tar.gz
 URL:            http://libmms.sf.net
 BuildRequires:	glib2-devel
