@@ -1,6 +1,6 @@
 %define name	libmms
-%define version	0.4
-%define release	%mkrel 3
+%define version	0.5
+%define release	%mkrel 1
 
 %define major		0
 %define libname		%mklibname mms %major
@@ -13,8 +13,8 @@ Release:	%{release}
 License:	LGPLv2.1
 Group:          System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Source:         http://prdownloads.sourceforge.net/libmms/libmms-%{version}.tar.gz
-URL:            http://libmms.sf.net
+Source:         http://launchpad.net/libmms/trunk/%version/+download/libmms-%{version}.tar.gz
+URL:            https://launchpad.net/libmms/
 BuildRequires:	glib2-devel
 
 %description
