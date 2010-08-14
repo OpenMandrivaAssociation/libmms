@@ -1,5 +1,5 @@
 %define name	libmms
-%define version	0.5
+%define version	0.6
 %define release	%mkrel 1
 
 %define major		0
@@ -46,14 +46,14 @@ to allow you to build programs that use libmms.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
+rm -f %{buildroot}%{_libdir}/*.a
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog README TODO README.LICENSE
-%{_libdir}/libmms.so.*
+%{_libdir}/libmms.so.%{major}*
 
 %files -n %develname
 %defattr(-, root, root)
