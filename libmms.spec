@@ -1,6 +1,6 @@
 %define name	libmms
 %define version	0.6.2
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 %define major		0
 %define libname		%mklibname mms %major
@@ -50,18 +50,10 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-rm -f %{buildroot}%{_libdir}/*.a
+rm -f %{buildroot}%{_libdir}/*a
 
 %clean
 rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
 
 %files -n %libname
 %defattr(-, root, root)
@@ -72,5 +64,4 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %{_includedir}/libmms
 %{_libdir}/libmms.so
-%{_libdir}/libmms.la
 %{_libdir}/pkgconfig/libmms.pc
