@@ -2,6 +2,8 @@
 %define libname	%mklibname mms %{major}
 %define devname	%mklibname mms -d
 
+%define _disable_lto 1
+
 Summary:	MMS stream protocol library
 Name:		libmms
 Version:	0.6.2
