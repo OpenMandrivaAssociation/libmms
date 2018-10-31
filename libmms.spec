@@ -7,7 +7,7 @@
 Summary:	MMS stream protocol library
 Name:		libmms
 Version:	0.6.4
-Release:	1
+Release:	2
 License:	LGPLv2.1
 Group:		System/Libraries
 Url:		https://sourceforge.net/projects/libmms/
