@@ -12,6 +12,11 @@ License:	LGPLv2.1
 Group:		System/Libraries
 Url:		https://sourceforge.net/projects/libmms/
 Source0:	http://sourceforge.net/project/%{name}/files/%{name}/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(glib-2.0)
 
 %description
